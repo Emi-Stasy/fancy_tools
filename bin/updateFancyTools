@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SRC_DIR=~/Documents/Emilie_UDM/fancy_tools
+
+# Se positionner dans ~/src/fancy_tools
+cd "$SRC_DIR"
+
+# Verifier que l'on est sur la branche main
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if ["$BRANCH" != "main"]; then
+	echo "Erreur: vous devez etes dans la branche main (Branche actuelle: $BRANCH)"
+	exit 1
+fi
+
+#Effectuer un git pull
+git pull
+
+#Copier le script updateFancyTools vers ~/bin
+mkdir -p ~/bin
+cp "$SRC_DIR/bin/updateFancyTools ~/bin/updateFancyTools
+chmod +x bin/updateFancyTools
+
+echo " Mise a jour terminee!"
+
