@@ -8,7 +8,7 @@ if !git rev-parse --is-inside-work-tree > /dev/null 2>&1;then
 	return 1
 fi
 
-if [-z "$1"]; then
+if [ -z "$1"]; then
 	echo "Usage: gco 'votre message de commit'"
 	return 1
 fi
